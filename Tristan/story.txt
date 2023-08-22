@@ -1,0 +1,56 @@
+Ironville
+Welcome to Ironville where the highest quality iron ore is mined and shipped to build the kingdom.
+You enter the village. You see a sign. (read sign it says black smith to the west south is farms north is the mine)
+Choices:
+	Blacksmith:
+		You walk up the road to the Blacksmith shop.
+		Options:Enter or leave
+			Choose: Enter Buy a sword
+				   Leave 
+	Mine
+		You walk up to the mine entrance. 
+Options: enter mine or return to forest.
+	Choose: Entered Mine
+
+Entering the mine you see a pickaxe. 
+Options: grab pickaxe or use fist to break through.
+Choose: You pick up the pickaxe and use it to break through the wall.  
+
+Enter MainRoom
+	Option: Kill, talk or sneak by Gobblin
+		Choose: You kill the goblin
+
+*Options: Enter tunnels on East, West or South.
+Choose: You proceed to tunnel to the East.
+
+Continue down the tunnel  and enter an oval room.
+
+There are 2 Goblins in the room:
+	Options: Kill, Talk  or leave
+		Choose: Kill and you Succeed
+Return to Main room
+*Options: Enter tunnels on East, West or South.
+Choose: You proceed to tunnel to the South.
+
+Heading south, deeper in the mine, you see 2 orcs.
+Options: Kill, Talk, Sneak or Leave
+		Choose: Kill and you Succeed
+
+Continuing down the tunnel.
+Options: Continue forward or Turn East.
+Choose: turn East
+
+Leads you to another room that has 2 Orcs and 1 Gobblin. 
+Options: Kill, Talk, or Leave
+		Choose: Kill and you Succeed
+
+Return to the main hallway.
+	Options: Head North back to entrance, Head East back to room, Head south going further in mine.
+		Choose: Head south going further in mine
+Entering another room you meet another human. They are able to heal you.
+
+Return to Main room
+*Options: Enter tunnels on East, West or South.
+Choose: You proceed to tunnel to the West.
+
+

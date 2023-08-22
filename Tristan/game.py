@@ -18,8 +18,10 @@ goblin_ac = 18
 def ironville():
     print('Welcome to Ironville where the highest quality iron ore is mined and shipped to build the kingdom. You can go east, west, or south')
     direction = input('what do you what to do? ')
-    if direction == 'east':
-        print('in front of you you see a crossroads. You can go east west or south')
+    if direction == 'east south west ':
+    if east 
+        print('in front of you see a crossroads. You can go east west or south')
+    if s     
         print(d20)
         
     if d20 > goblin_ac:
@@ -36,6 +38,8 @@ def iron_mine_entrance():
     else:
         print("you fall to your death.")
 
+def room_1():
+    pass
 
 def main():
     ironville()
