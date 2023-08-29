@@ -1,23 +1,22 @@
-def room_3():
-    print("You are in room three now. Before you there is a throne with what seems to be the skeliton of a king or ruler of some   kind.")
-    print("You hear a voice that seems to come from everwhere and nowhere at the same time.")
 def room_2():
-    print("you are in room two now, there is a table standing before you.")
-    
-    
+    print("")
 def room_1():
-    print("You are standing in a room. There is a door. Go though the door?")
-    choice = input("Right or Left or Neither: ") 
+    print("as you enter the fortress you hear a soft scraping sound, you turn around and to your horror the entrance is colapsing, you try to rush out but its to late. As the dust clears you realize that you should not have come here, now you will have to find another exit. As you are trying to think about what to do your companion grabs your attantion, they gesture showing you that there are two paths to go ")
+    
+    
+def room_0():
+    print("You have traveled far and wide to get here, the fortress of Galmore. the riches and knowledge in there may be able to help you in your quest for finding the orogins of your past. You're faced with a choice, go forward or turn back.Be warned to go further may mean certain doom. you turn to your companion and you remember what they had told you.                       'I will follow were you lead and do all I can to help and protect you. But I can not make this choice for you.'")
+    choice = input("forward or back: ") 
 
-    if choice == "right":
-        print("You go through the door on the right. ")
-        room_2()
+    if choice == "forward":
+        print("you decide that to go back now would be foulish you have come this far, you might as well continue forward, you gather your corage and enter. ")
+        room_1()
         
-    elif choice == "left":
-        print("You go through the door on the left. ")
-        room_3()
+    elif choice == "back":
+        print("You decide to go back nothing is worth dying for, even the mistarys of your past, as you leave you wonder what might have happend had you gone forward.")
+        room_2()
     elif choice == "neither":
-         print("you stay in the room, over the next few days, you feel your sanity slowly slip away, you stay here, in the dark, until you are nothing, but an emty courpes, you feel the very being of your soul become dark and sad. You die all alone, and the only company you have left, are you rats and bugs that fest on your body.")
+         print("")
          quit()
     else:
         print("make a choice: ")
@@ -26,7 +25,7 @@ def room_1():
 
     
 def main():
-    room_1()
+    room_0()
     
 if __name__ == "__main__":
     main()
