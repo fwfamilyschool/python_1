@@ -32,17 +32,61 @@ def ironville():
         print('You exit the town and head to the mine.')    
 
 def iron_mine_entrance():
-    print("The coastal town of Sandpoint has faced few trials and dangers over the course of its forty-two year history, but unfortunately, that is all about to change. Unknown to the town’s founders, they chose to build their community over the ruins of an ancient stronghold once used as laboratory and prison, a place where horrifi c experiments and unholy explorations into what divides man from monster took place. These are the Catacombs of Wrath, one of several such sites used by Runelord Alaznist’s apprentices during Thassilon’s height, a place where arcanists explored and perfected the stolen arts of lifeshaping and fleshwarping. When Thassilon fell, these catacombs went dormant, but the one buried under Sandpoint was not fated to stay that way.")
-    direction = input()
-    if direction == "down":
-        print("The chasm before you drops off at an very steep angle. You can continue or go back.")
-    else:
-        print("you fall to your death.")     
+    print(".")
+    direction = input(" you Entering the mine you see a pickaxe. 
+Options: grab pickaxe or use fist to break through the bareakade.
+Choose: You pick up the pickaxe and use it to break through the wall")
+    if direction == "south":
+        print("Enter MainRoom
+	Option: attack, talk or sneak by Gobblin
+		Choose: You attack the goblin.")     
     
 def main():
     ironville()
     iron_mine_entrance()
 
+def iron_mine_entrance():
+    print("""you Entering the mine you see a pickaxe. 
+Options: grab pickaxe or use fist to break through.
+Choose: You pick up the pickaxe and use it to break through the wall.""")
+    direction = input()
+     
+
+def room_1():
+    print("""Enter MainRoom
+	Option: attack, talk or sneak by Gobblin
+		Choose: You attack the goblin.""")
+        
+def room_2():
+    print("""enter an oval room. There are 2 Goblins in the room:
+	Options: attack, Talk  or leave
+		Choose: attack and you Succeed""")
+def room_3():
+    print("""Return to Main room
+*Options: Enter tunnels on East, West or South.
+Choose: You proceed to tunnel to the South""")
+def room_4():
+    print("""Heading south, deeper in the mine, you see 2 orcs.
+Options: attack, Talk, Sneak or Leave
+		Choose: attack and you Succeed""")
+def room_5():
+    print("""Continuing down the tunnel.
+Options: Continue forward or Turn East.
+Choose: turn East""")
+def room_6():
+    print("""Leads you to another room that has 2 Orcs and 1 Gobblin. 
+Options: attack, Talk, or Leave
+		Choose: attack and you Succeed""")
+def room_7():
+    print("""Return to the main hallway.
+	Options: Head North back to entrance, Head East back to room, Head south going further in mine.""")
+def room_8():
+    print("""Choose: Head south going further in mine
+Entering another room you meet another human. They are able to heal you""")
+def room_9():
+    print("""Return to Main room
+*Options: Enter tunnels on East, West or South.
+Choose: You proceed to tunnel to the West. or you go south then you see 3 goblin""")
 
 if __name__ == "__main__":
     main()
