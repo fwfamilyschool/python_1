@@ -8,13 +8,19 @@ def room_3(name):
         elif choice_3 == "right":
             print("you get out of the way just in time. do you go down the hall or follow the train.")
             quit()
+        elif choice_3 == "up":
+            print(". .\n o")
+            room_3(name)
+        elif choice_3 == "down":
+            print(". .\n -")
+            room_3(name)
         else:
             print("please type left or right")
             room_3(name)
 
 def room_1(name):
   print(f"You are going home from the mall, when you forget which house is your house.")
-  print("so do you go into the house on the left or the house on the right?")
+  print("so do you go into the house on the left or the house on the right?\n")
 
   while True:
       choice = input("left or right\n")

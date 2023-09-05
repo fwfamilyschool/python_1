@@ -5,52 +5,61 @@ Choices:
 	Blacksmith:
 		You walk up the road to the Blacksmith shop.
 		Options:Enter or leave
-			Choose: Enter Buy a sword
+			Choose: Enter and Buy a sword
 				   Leave 
 	Mine
-		You walk up to the mine entrance. 
-Options: enter mine or return to forest.
-	Choose: Entered Mine
-
-Entering the mine you see a pickaxe. 
+		You walk up to the mine entrance you see a group of 10 soldiers.  You see a sign it reads "danger orcs, goblins!" and you see a rail on the ground.
+Options: *enter mine
+	*Choose: Entered Mine
+Entering the mine you see you see a pickaxe on the ground. The air it is damp. The rail is blocked by a barricade.    
 Options: grab pickaxe or use fist to break through.
-Choose: You pick up the pickaxe and use it to break through the wall.  
+	Choose: You pick up the pickaxe and use it to break through the barricade.  
 
 Enter MainRoom
-	Option: Kill, talk or sneak by Gobblin
-		Choose: You kill the goblin
-
+ You see a Goblin in the middle of the room. He has his back to you. Since he heard you break throught the barricade he quickly turns around. 
+ Option: Attack, talk or sneak by Gobblin
+		Choose: You attack the goblin
+			result: You defeat the goblin
+		choice: Talk to goblin
+			result: the goblin attack
+ Option:Search Room or move on
+	Chose: Looking around 
+		you see pickaxe markings on all the walls.You notice in the rocks on the floor and in the walls that they have iron in them. You see wood holding the roof and the unfinished rail. You notice torches on the walls. You see tunnels on the East, West and South
+Option: grab 
 *Options: Enter tunnels on East, West or South.
-Choose: You proceed to tunnel to the East.
+Choose: You proceed to tunnel to the East
 
-Continue down the tunnel  and enter an oval room.
-
-There are 2 Goblins in the room:
-	Options: Kill, Talk  or leave
-		Choose: Kill and you Succeed
+Continue down the tunnel you see a sign that read "danger unstabel rooks!" at the entrance of an oval room 
+Entering the room you see 2 Goblins in the room:
+	Options: Attack,   or leave
+		Choose: attack and you Succeed
+ Option:Search Room or move on
+	Chose: Looking around 		
+	There is iron in the walls and loose rock on the ground. I notice the walls are all solid with no other exit. 
 Return to Main room
-*Options: Enter tunnels on East, West or South.
+*Options: Leave the Mine or go West or South.
 Choose: You proceed to tunnel to the South.
-
-Heading south, deeper in the mine, you see 2 orcs.
-Options: Kill, Talk, Sneak or Leave
-		Choose: Kill and you Succeed
+you see torchis in this tunnel Heading south, deeper in the mine, thare is mose you see 2 orcs amd you see wood holding the roof and you see.
+Options: attack, Talk, Sneak or Leave
+		Choose: attack and you Succeed
 
 Continuing down the tunnel.
+you see mose on the wall and you see wood holding the roof and you see torchis on the wall and you see the ground is rocky
 Options: Continue forward or Turn East.
 Choose: turn East
-
+ 
 Leads you to another room that has 2 Orcs and 1 Gobblin. 
-Options: Kill, Talk, or Leave
-		Choose: Kill and you Succeed
-
+Options: attack, Talk, or Leave
+ 		Choose: attack and you Succeed
+ after you attack them you see iorn in the walls and on the floor thare is rooks and ther is wood holding the roof and you see and you see the ground is rocky
 Return to the main hallway.
 	Options: Head North back to entrance, Head East back to room, Head south going further in mine.
 		Choose: Head south going further in mine
-Entering another room you meet another human. They are able to heal you.
+Entering another room you meet another human. They are able to heal you. and you see torchis in this room and you see wood holding the roof and you see and you see the ground is rocke
 
 Return to Main room
 *Options: Enter tunnels on East, West or South.
 Choose: You proceed to tunnel to the West.
-
-
+you see a big room with
+and you see mose you see a  chest you open the chest in the ther is a gratsword and you see  wood holding the roof and you see and you see the ground is smoth
+you return to the main hallway you go down the stairs you see 3 goblins in the room you attack them you are loy in helth so you ask you'er ferend to heals you and you go in a another room you see orcs and goblin garding ther boos it is a orc you attack all of them and you see mose on the ground  wood holding the roof and you see and you see the ground is smoth
