@@ -85,6 +85,7 @@ def oval_room():
     print("""enter an oval room. There are 2 Goblins in the room:
     Options: attack, Talk  or leave
         Choose: attack and you Succeed""")
+    action = input ("Option: look in room")
     if action == "Room": 
         print("""Looking around There is iron in the walls and loose rockon
 the ground I notice the walls are all solid with no other exit.""")
@@ -95,12 +96,12 @@ def room_3():
 *Options: Enter tunnels on East, West or South.
 Choose: You proceed to tunnel to the South""")
     print("""you see torchis in this tunnel Heading south, deeper in the
-mine, thare is mose you see 2 orcs amd you see wood holding the roof and
+mine,you see 2 orcs amd you see wood holding the roof and
 you see.""")
-# def room_4():
-#     print("""Heading south, deeper in the mine, you see 2 orcs.
-# Options: attack, Talk, Sneak or Leave
-# Choose: attack and you Succeed""")
+def room_4():
+    print("""Heading south, deeper in the mine, you see 2 orcs.
+Options: attack, Talk, Sneak or Leave
+Choose: attack and you Succeed""")
 # def room_5():
 #     print("""Continuing down the tunnel.
 # Options: Continue forward or Turn East.
