@@ -7,7 +7,7 @@ def room_3(name):
             quit()
         elif choice_3 == "right":
             print("you get out of the way just in time. do you go down the hall or follow the train.")
-            quit()
+            room_4(name)
         elif choice_3 == "up":
             print(". .\n o")
             room_3(name)
@@ -17,6 +17,27 @@ def room_3(name):
         else:
             print("please type left or right")
             room_3(name)
+
+def room_4(name):
+    while True:
+        choice_4 = input("hall or train.\n")
+        if choice_4 == "hall":
+            print(f"you go down the hall and while walking you remember that the train had a sign that said {name}.")
+            quit()
+        elif choice_4 == "train":
+            print("you run into a wall and go unconsious. a train runs you over. you die.")
+            quit()
+        else:
+            print("please type hall or train")
+            room_4(name)
+            
+
+
+
+
+
+
+
 
 def room_1(name):
   print(f"You are going home from the mall, when you forget which house is your house.")
