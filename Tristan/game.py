@@ -16,8 +16,9 @@ goblin_ac = 18
 
 
 def ironville():
-    print('Welcome to Ironville where the highest quality iron ore is mined and shipped to build the kingdom. You can go east, west, or south')
-    direction = input('what do you what to do? ')
+    print('''Welcome to Ironville where the highest quality iron ore is mined
+    and shipped to build the kingdom. You can go east, west, or south''')
+    direction = input('Where do you want to go? ')
     if direction == 'east south west ':
         if east: 
             print('in front of you see a crossroads. You can go east west or south')
