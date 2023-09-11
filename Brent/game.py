@@ -12,13 +12,28 @@ def intro(character):
     class_choice = input("Your choices are: Rogue, Cleric, Fighter, or Druid. Choose one to learn more about it: ").lower()
 
     learn_more = True
-    while learn_more == True:
+    def class_info(class_choice):
         match class_choice:
             case "rogue" : print("The Rogue is skillful, quiet, and smart. He or she wears little armor.")
             case "cleric" : print("The cleric tends to be a healer who can wear light or heavy armor and uses magic to serve others.")
             case "fighter" : print("The fighter likes close combat and does not like being weighed down with heavy armor.")
             case "druid" : print("The druid tries to be one with nature. A strong magic user who can wear light or heavy armor.")
+            case other : print("That is not a valid choice.")
+        return
 
+    class_info(class_choice)
+    
+    while learn_more == True:
+        more = input("Do you want to know about another class? ")
+        if more == "no".lower() or more == "n".lower():
+            learn_more = False
+            print(str(learn_more))
+            break
+        elif more == "yes".lower() or more == "y".lower():
+            class_choice = input("Choose another class: ")
+            class_info(class_choice)
+        
+    
     choice = input("Would you like to visit the shop? ")
 
     if choice.lower() == "yes" or choice.lower() == "y":
