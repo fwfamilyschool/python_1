@@ -9,11 +9,11 @@ def intro(character):
     print("Welcome, {}, you're about to embark on an amazing adventure! \n".format(character['name']))
 
     print("You must first select a character class.")
-    class_choice = input("Your choices are: Rogue, Cleric, Fighter, or Druid. Choose one to learn more about it: ").lower()
+    class_choice = input("Your choices are: Rogue, Cleric, Fighter, or Druid. Choose one to learn more about it: ")
 
     learn_more = True
     def class_info(class_choice):
-        match class_choice:
+        match class_choice.lower():
             case "rogue" : print("The Rogue is skillful, quiet, and smart. He or she wears little armor.")
             case "cleric" : print("The cleric tends to be a healer who can wear light or heavy armor and uses magic to serve others.")
             case "fighter" : print("The fighter likes close combat and does not like being weighed down with heavy armor.")
@@ -24,12 +24,12 @@ def intro(character):
     class_info(class_choice)
     
     while learn_more == True:
-        more = input("Do you want to know about another class? ")
-        if more == "no".lower() or more == "n".lower():
+        more = input("Do you want to learn about another class? ")
+        if more.lower() == "no" or more.lower() == "n":
             learn_more = False
             print(str(learn_more))
             break
-        elif more == "yes".lower() or more == "y".lower():
+        elif more.lower() == "yes" or more.lower() == "y":
             class_choice = input("Choose another class: ")
             class_info(class_choice)
         
@@ -39,7 +39,7 @@ def intro(character):
     if choice.lower() == "yes" or choice.lower() == "y":
         shop(character)
 
-    #character['inventory'] = {'armortype' : 'diamond'}
+''' character['inventory'] = {'armortype' : 'diamond'}
 
     #print(character)
     #print(character.get('inventory'))
@@ -65,7 +65,7 @@ def intro(character):
         print("Your armor class is now {}. \n".format(character['AC']))
     else:
         print("Your armor class is {}. \n".format(character['AC']))
-
+'''
 
 def shop(character):
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
