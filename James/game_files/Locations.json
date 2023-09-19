@@ -19,5 +19,12 @@
     "maxMonsterCount": 5,
     "type": "combat",
     "description": "You've reached the countryside, where population is sparse.  Be careful as you travel, a monster might find you."
+  },
+  "3":{
+    "location_id": 3,
+    "name": "Dark Woods",
+    "maxMonsterCount": 5,
+    "type": "combat",
+    "description": "The woods around you block out the light.  There is an eerie feeling in the trees.  Be careful."
   }
 }

@@ -22,5 +22,17 @@
         "location1Key": 2,
         "location2Key": 0,
         "discoveryChance":60
+    },
+    "4": {
+        "description": "TownsVille Countryside to Dark Woods",
+        "location1Key": 2,
+        "location2Key": 3,
+        "discoveryChance":60
+    },
+    "5": {
+        "description": "Dark Woods to TownsVille Countryside",
+        "location1Key": 3,
+        "location2Key": 2,
+        "discoveryChance":60
     }
 }

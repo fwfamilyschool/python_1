@@ -1,0 +1,14 @@
+{
+  "0":{
+    "name":"Troll",
+    "locationKey": 2,
+    "npcDefKey":0,
+    "spawnChance":100
+  },
+  "1":{
+    "name":"Kobold",
+    "locationKey": 3,
+    "npcDefKey":0,
+    "spawnChance":100
+  }
+}

@@ -18,15 +18,16 @@ def main(current_location, player_stats):
 
   # Basic Location Options
   if location_type == "RestSite":
-    location_options = ["(e) Explore", "(v) See your inventory", "(i) See nearby items", "(r) Rest Here", "(q) Quit the game"]
+    location_options = ["(e) Explore", "(i) See your inventory", "(n) See nearby items", "(r) Rest Here", "(q) Quit the game"]
     options = ["e", "i", "r"]
   else:
-    location_options = ["(e) Explore", "(v) See your inventory", "(i) See nearby items", "(q) Quit the game"]
+    location_options = ["(e) Explore", "(i) See your inventory", "(n) See nearby items", "(q) Quit the game"]
     options = ["e", "i", "q"]
 
 
   # Print stuff to the screen
-  print(f"Your current location is: {location_name} - {current_location}")
+  # print(f"Your current location is: {location_name} - {current_location}")
+  print(f"Your current location is: {location_name}")
   print(f"Your hitpoints: {player_stats['hitpoints']}/{player_stats['max_hp']}\n")
   game.slowPrint(f"Description: {location_description}\n")
 
@@ -45,7 +46,7 @@ def main(current_location, player_stats):
   while userInput not in options:
     userInput = input("\nCommand: ")
     if userInput == "":
-      game_loop(current_location, player_stats)
+      main(current_location, player_stats)
     elif userInput == "e":
       game.explore(current_location)
     elif userInput == "r":
@@ -53,18 +54,17 @@ def main(current_location, player_stats):
         game.rest(player_stats)
       else:
         print("This is not a location you may rest at.")
-    elif userInput == "i":
+    elif userInput == "n":
       game.show_location_items()
-    elif userInput == "v":
+    elif userInput == "i":
       game.show_inventory(player_stats)
     elif userInput < str(len(location_paths)):
       # Travel to location selected
       destination_id = game.travel(current_location, location_paths[int(userInput)]['path_id'], player_stats)
       time.sleep(4)
-      game_loop(destination_id, player_stats)
+      main(destination_id, player_stats)
     elif userInput == "q":
-      # print(f"It's been fun, {name}.  I hope you come back soon.")
-      print("It's been fun.  I hope you come back soon.")
+      print(f"It's been fun, {name}.  I hope you come back soon.")
       quit()
     else:
       game.slowPrint("Please enter a valid option.")

@@ -82,13 +82,26 @@ def get_paths(location_id):
 
   return(path_list)
 
-def calculate_ambush_chance(location_id):
-  # Get number of Monsters in the area you are traveling to
-  # monster_count = get_monster_count(location_id)
-  # print(monster_count)
 
-  return(True)
-  # return(False)
+class Monster():
+    def __init__(self):
+        self.hp = random.randint(10, 20)
+        self.attk = random.randint(1, 3)
+        self.gold = random.randint(2, 5)
+        self.xp = 100
+
+
+def enter_combat(destination_location_id):
+  # read monsters for a given location
+  f = open('game_files/MonsterSpawner.json')
+  monster_list = json.load(f)
+  f.close()
+
+  for monster in monster_list:
+    if destination_location_id == monster_list[monster]['locationKey']:
+      print(f"You are fighting a {monster_list[monster]['name']}")
+
+  return(False)
 
 
 # Travel to a new location
@@ -98,17 +111,14 @@ def travel(current_location_id, path_id, player_stats):
   location_paths = json.load(f)
   f.close()
 
+  # Get data to calculate if you find a monster
   discoveryChance = location_paths[path_id]['discoveryChance']
   destination_location_id = location_paths[path_id]['location2Key']
   travel_success = randint(1, 100)
 
   name, loc_desc, loc_type = get_location_info(destination_location_id)
 
-  if discoveryChance is None:
-    print(f"You are walking to {name}.")
-    slowPrint("....",1)
-    ambush = False
-  elif discoveryChance == 0:
+  if discoveryChance == 0:
     print(f"You are walking to {name}.")
     slowPrint("....",1)
     ambush = False
@@ -122,7 +132,11 @@ def travel(current_location_id, path_id, player_stats):
 
   if ambush == True:
     print("You have been ambushed.")
-    destination_id = current_location_id
+    success = enter_combat(destination_location_id)
+    if success == True:
+      destination_id = destination_location_id
+    else:
+      destination_id = current_location_id
   else:
     print("You have arrived.")
     destination_id = destination_location_id
