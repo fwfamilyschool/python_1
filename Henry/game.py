@@ -23,8 +23,8 @@ def Basement(character):
             if choice == "yes":
                 print("The tunnel is growing darker, and you get the feeling that something is watching your movements, and is probably waiting to strike. Do you still want to proceed on, or go back, and get the glowing sword?")
             if choice == "no":
-               choice == input ("You continue walking through the dark halls, and also seem to still feel unsettled about what may be lurking around, you hear ominous noises, and also hear whisperings in the walls, suddenly, some unseen force flew straight through the wall, you start to feel choked, and pass out from oxygen deprivation! *You Died!* ")
-
+               choice == input ("You continue walking through the dark halls, and also seem to still feel unsettled about what may be lurking around, you hear ominous noises, and also hear whisperings in the walls, suddenly, some unseen force flew straight through the wall, you start to feel choked, and draw your sword, seemingly from thin air, and swipe at the air! *You gained 20 Telerium!*...you feel relieved of oxegen deprivation, and stare marvellingly at the sword and its loyalty towards you... would you like to press on, with courage in your soul, or CHICKEN OUT!? ")
+            if choice == "proceed":
 
 '''
 def Tuff_Maze():
@@ -56,4 +56,24 @@ def main():
 
 if __name__ == "__main__":
      main()
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
