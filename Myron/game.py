@@ -26,10 +26,36 @@ def room_1():
 the entrance is colapsing, you try to rush out but its to late. As the dust clears you realize that you\
 should not have come here, now you will have to find another exit. As you are trying to think about what\
 to do your companion grabs your attantion, they gesture showing you that there are two paths to go, one to the left and\
-    one to the right.")
+ one to the right.")
      
     choice = input("left or right:")
     if choice == "left":
         print("you go left:")
-def room_3
-room_0()
+        room_3()
+def room_3():
+    print("you are in room three")
+    print("left right forward back")
+    
+    choice = input("left right forward back:")
+    if choice == "left":
+        print("you go left:")
+        room_9()
+    if choice == "right":
+        print("you go right:")
+        room_5()
+    if choice == "forward":
+        print("you go forward:")
+        room_7()
+    if choice == "back":
+        print("you go back:")
+        room_1()
+def room_9():
+    print("you are in room nine")
+
+def room_7():
+    print("you are in room seven") 
+    
+def room_5():
+    print("you are in room five")
+if __name__ == "__main__":
+    room_0()

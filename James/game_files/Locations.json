@@ -1,0 +1,23 @@
+{
+  "0":{
+    "location_id": 0,
+    "name": "TownsVille",
+    "maxMonsterCount": 0,
+    "type": "town",
+    "description": "Welcome to the home town of TownsVille, where the name is generic, because I can't think of anything better."
+  },
+  "1":{
+    "location_id": 1,
+    "name":"TownsVille Inn",
+    "maxMonsterCount": 0,
+    "type": "RestSite",
+    "description": "This is the Inn at TownsVille.  Feel free to rest up."
+  },
+  "2":{
+    "location_id": 2,
+    "name": "TownsVille Countryside",
+    "maxMonsterCount": 5,
+    "type": "combat",
+    "description": "You've reached the countryside, where population is sparse.  Be careful as you travel, a monster might find you."
+  }
+}
