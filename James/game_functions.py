@@ -2,7 +2,16 @@
 import time
 import sys
 import json
-from random import *
+import random
+
+
+# class Monster:
+#     def __init__(self, name, hp, str, dex, int):
+#         self.name = name
+#         self.hp = hp
+#         self.str = str
+#         self.dex = dex
+#         self.int = int
 
 
 # Slow print the text.  For fun
@@ -12,13 +21,6 @@ def slowPrint(string, speed=0.00):
     sys.stdout.flush()
     time.sleep(speed)
   print("\b")
-
-
-# Explore a location for monsters
-def explore(location_id):
-  print("You are exploring")
-  slowPrint("....",1)
-  print("You find nothing.")
 
 
 # Get name of location from the location_id
@@ -83,15 +85,11 @@ def get_paths(location_id):
   return(path_list)
 
 
-class Monster():
-    def __init__(self):
-        self.hp = random.randint(10, 20)
-        self.attk = random.randint(1, 3)
-        self.gold = random.randint(2, 5)
-        self.xp = 100
+def generate_combat_site(destination_location_id):
+  pass
 
 
-def enter_combat(destination_location_id):
+def generate_mob(destination_location_id):
   # read monsters for a given location
   f = open('game_files/MonsterSpawner.json')
   monster_list = json.load(f)
@@ -99,9 +97,37 @@ def enter_combat(destination_location_id):
 
   for monster in monster_list:
     if destination_location_id == monster_list[monster]['locationKey']:
-      print(f"You are fighting a {monster_list[monster]['name']}")
+      npc = monster_list[monster]['npcDefKey']
 
-  return(False)
+  # generate new monster based on NPC Definition file
+  f = open('game_files/NPCDef.json')
+  npc_list = json.load(f)
+  f.close()
+  npc = npc_list[str(npc)]
+
+  mob = {
+    'name': npc['name'],
+    'strength': random.randrange(npc['strength'][0], npc['strength'][1]),
+    'dexterity': random.randrange(npc['dexterity'][0], npc['dexterity'][1]),
+    'intelligence': random.randrange(npc['intelligence'][0], npc['intelligence'][1]),
+    'itemSpawners': npc['itemSpawners'],
+    'hitpoints': random.randrange(npc['hitpoints'][0], npc['hitpoints'][1]),
+  }
+
+  return(mob)
+
+
+def enter_combat(destination_location_id):
+  combat_site = generate_combat_site(destination_location_id)
+  mob = generate_mob(destination_location_id)
+  print(f"A {mob['name']} found you. Time to show him what's for!")
+
+
+# Explore a location for monsters
+def explore(location_id):
+  print("You are exploring")
+  slowPrint("....",1)
+  enter_combat(location_id)
 
 
 # Travel to a new location
@@ -191,6 +217,9 @@ def get_player_stats(name):
                           'name': name,
                           'hitpoints': 50,
                           'max_hp': 50,
+                          'strength': 5,
+                          'dexterity': 5,
+                          'intelligence': 5,
                           'left_hand': 'none',
                           'right_hand': 'none',
                           'helmet': 'none',
