@@ -90,6 +90,7 @@ def calculate_ambush_chance(location_id):
   return(True)
   # return(False)
 
+
 # Travel to a new location
 def travel(current_location_id, path_id, player_stats):
   # read all path data from JSON file
@@ -138,6 +139,7 @@ def travel(current_location_id, path_id, player_stats):
 
   return(destination_id)
 
+
 # Rest and fill your hitpoints
 def rest(player_stats):
   print(f"You feel safe here, so you find a nice spot to take a nap.")
@@ -182,7 +184,7 @@ def get_player_stats(name):
                           'leggings': 'none',
                           'gloves': 'none',
                           'boots': 'none',
-                          'location': 5629499534213120
+                          'location': 0
                           }
                     }
     data.update(player_stats)
@@ -194,7 +196,7 @@ def get_player_stats(name):
   return(data[name])
 
 
-# Get player inventory
+# Get items dropped at current location
 def show_location_items():
   print("There doesn't seem to be anything here.")
 
@@ -211,34 +213,3 @@ def show_inventory(player_stats):
   print(f"\tright_hand \t{player_stats['right_hand']}")
   print("\nYour current inventory:")
   print("\tNothing.")
-
-
-# def test():
-#   # get all path id's and location id's into one file
-#   config_file = 'game_files/Paths.json'
-#   f = open(config_file)
-#   data = json.load(f)
-
-#   new_paths = {}
-
-#   for i in data:
-#     try:
-#       location1Key = data[i]['location1Key']['flat_path'][1]
-#       location2Key = data[i]['location2Key']['flat_path'][1]
-#       # name1 = get_location_info(location1Key)
-#       # name2 = get_location_info(location2Key)
-
-#       new_path = {data[i]['path_id']: {
-#                           'location1Key': location1Key,
-#                           'location2Key': location2Key
-#                           }
-#                     }
-#       new_paths.update(new_path)
-#     except:
-#       pass
-
-#   f.close()
-
-#   with open('game_files/new_paths.json', 'w') as f:
-#     json.dump(new_paths, f, ensure_ascii=False, indent=4)
-
