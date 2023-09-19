@@ -1,10 +1,15 @@
+from random import randint
+
 def funds(character):
-        print("You have {} gold, {} silver, and {} copper.".format(character['gold'], character['silver'], character['copper']) )
+        print("Let\'s roll to see how much money you\'ll have to start with.")
+        input("Press Enter to begin. ")
+        character['funds']['gold'] = randint(100,300)
+        print("You have {} gold.").format(character['funds']['gold'])
         return
 
 
 def intro(character):
-    character['name'] = input("What's your name? \n")
+    character['name'] = input("What's your name?: ")
 
     print("Welcome, {}, you're about to embark on an amazing adventure! \n".format(character['name']))
 
@@ -25,11 +30,11 @@ def intro(character):
     
     while learn_more == True:
         more = input("Do you want to learn about another class? ")
-        if more.lower() == "no" or more.lower() == "n":
+        if more.lower() in  "no":
             learn_more = False
             print(str(learn_more))
             break
-        elif more.lower() == "yes" or more.lower() == "y":
+        elif more.lower() in "yes":
             class_choice = input("Choose another class: ")
             class_info(class_choice)
         
@@ -39,33 +44,6 @@ def intro(character):
     if choice.lower() == "yes" or choice.lower() == "y":
         shop(character)
 
-''' character['inventory'] = {'armortype' : 'diamond'}
-
-    #print(character)
-    #print(character.get('inventory'))
-    #print(character['inventory']['armortype'])
-    
-    #character['inventory'] = {'armorequipped' : False}
-
-    
-
-    equip = input("Would you like to equip your armor? \n")
-
-    def equiparmor(equip):
-        if equip.lower() == "yes" or equip.lower() == "y":
-            character['AC'] += 3
-            character['inventory']['armorequipped'] = True
-        return
-    
-    equiparmor(equip)
-
-
-    if character['inventory']['armorequipped'] == True:
-        print("Your armor is equipped. \n")
-        print("Your armor class is now {}. \n".format(character['AC']))
-    else:
-        print("Your armor class is {}. \n".format(character['AC']))
-'''
 
 def shop(character):
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -92,7 +70,7 @@ def shop(character):
     while choice == "":
         choice = input("Type 'funds' to see how much money you have. Otherwise type 'list' to see what we have in stock today: ")
         match choice:
-            case 'funds': funds(character)
+            case 'funds': print(character['funds'])
             case 'list' : list_items(store_inventory)
     
 
@@ -104,9 +82,7 @@ def main():
         'hitpoints':100,
         'inventory':{},
         'AC':15,
-        'gold':100,
-        'silver':200,
-        'copper':200
+        'funds':{},
     }
 
     intro(character)
