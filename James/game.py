@@ -6,26 +6,7 @@ import game_functions as game
 import time
 
 
-def main():
-    character = {
-        'name': "unknown",
-        'hitpoints': 50,
-        'inventory': []
-    }
-    # name variable is just a name.  Age is the age of the person
-    game_text = "What is your name?"
-    if windows == False:
-        subprocess.run(["say", game_text])
-
-    name = input("What is your name? \n> ")
-    character['name'] = name
-
-    print(f"Hi {character['name']}, how are you?")
-    
-    start_spot(character)
-
-
-def game_loop(current_location, player_stats):
+def main(current_location, player_stats):
   print("#############################################################################")
   player_stats = game.get_player_stats(name)
 
@@ -97,4 +78,4 @@ if __name__ == "__main__":
   player_stats = game.get_player_stats(name)
 
   while True:
-    game_loop(player_stats['location'], player_stats)
+    main(player_stats['location'], player_stats)
