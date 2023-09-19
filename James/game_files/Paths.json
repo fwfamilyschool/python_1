@@ -1,0 +1,26 @@
+{
+    "0": {
+        "description": "TownsVille to TownsVille Inn",
+        "location1Key": 0,
+        "location2Key": 1,
+        "discoveryChance":0
+    },
+    "1": {
+        "description": "TownsVille Inn to TownsVille",
+        "location1Key": 1,
+        "location2Key": 0,
+        "discoveryChance":0
+    },
+    "2": {
+        "description": "TownsVille to TownsVille Countryside",
+        "location1Key": 0,
+        "location2Key": 2,
+        "discoveryChance":0
+    },
+    "3": {
+        "description": "TownsVille Countryside to TownsVille",
+        "location1Key": 2,
+        "location2Key": 0,
+        "discoveryChance":60
+    }
+}

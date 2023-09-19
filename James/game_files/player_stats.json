@@ -1,0 +1,28 @@
+{
+    "James": {
+        "name": "James",
+        "hitpoints": 50,
+        "max_hp": 50,
+        "left_hand": "none",
+        "right_hand": "none",
+        "helmet": "none",
+        "chestplate": "none",
+        "leggings": "none",
+        "gloves": "none",
+        "boots": "none",
+        "location": 2
+    },
+    "Asher": {
+        "name": "Asher",
+        "hitpoints": 50,
+        "max_hp": 50,
+        "left_hand": "none",
+        "right_hand": "none",
+        "helmet": "none",
+        "chestplate": "none",
+        "leggings": "none",
+        "gloves": "none",
+        "boots": "none",
+        "location": 0
+    }
+}
