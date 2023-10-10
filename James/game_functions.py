@@ -140,7 +140,7 @@ def travel(current_location_id, path_id, player_stats):
   # Get data to calculate if you find a monster
   discoveryChance = location_paths[path_id]['discoveryChance']
   destination_location_id = location_paths[path_id]['location2Key']
-  travel_success = randint(1, 100)
+  travel_success = random.randint(1, 100)
 
   name, loc_desc, loc_type = get_location_info(destination_location_id)
 
