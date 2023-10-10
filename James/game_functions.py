@@ -127,7 +127,8 @@ def enter_combat(destination_location_id):
 def explore(location_id):
   print("You are exploring")
   slowPrint("....",1)
-  enter_combat(location_id)
+  print("You don't find anything.")
+  # enter_combat(location_id)
 
 
 # Travel to a new location
