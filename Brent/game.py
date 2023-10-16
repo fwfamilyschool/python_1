@@ -3,7 +3,7 @@ from random import randint
 # a function that gives the player a starting amount of money
 def funds(character):
     input("\nPress Enter to begin. ")
-    character['funds']['gold'] = randint(100,300)
+    character['funds']['gold'] = randint(50,300)
     print(character['funds']['gold'])
     funds = character['funds']['gold']
     if funds > 200:
@@ -16,7 +16,10 @@ def funds(character):
     return
 
 # a function that prints out a character's inventory
-#def inventory(character):
+def print_inventory(character):
+    print("\nYour inventory: ")
+    [print(items) for items in character['inventory'].values()]
+
     
 
 # a function that has the player choose a character class
@@ -87,6 +90,8 @@ def intro(character):
             class_choice = input("Choose another class: ")
             class_info(class_choice)
 
+    print_inventory(character)
+
     opening(character)    
     
     # choice = input("Would you like to visit the shop? ")
@@ -94,11 +99,12 @@ def intro(character):
     # if choice.lower() == "yes" or choice.lower() == "y":
     #     shop(character)
 
+# a function that begins gameplay
 def opening(character):
-    print("\nYou're sitting in a hard wooden chair. Your hands are tied behind your back. You can't see thanks to a hood over your eyes.")
+    print("\nWelcome to Landlandia, a *ahem* land of many lands.")
     choice = input("What do you do?\n")
     tied = True
-    while tied == True:
+    while tied:
         match choice.split():
             #case["inventory"]:
             #    inventory(character)
@@ -126,6 +132,11 @@ def opening(character):
                     print("Once free, you can bring your hands to your front and use your teeth to bite the knots loose.")
                     print("You take the hood off to reveal your surroundings - a dingy cell with a lone torch barely lighting the space.")
                 tied = False
+                continue
+            case ["magic"]:
+                if character['class'] == 'cleric' or character['class'] == 'druid':
+                    print("You mumble an incantation that loosens the knots enough for you to get free.")
+                    tied = False
                 continue
             case other:
                 print("That doesn't seem to work.")
@@ -170,7 +181,9 @@ def main():
         'name': "",
         'class': "",
         'hitpoints': 100,
-        'inventory': {},
+        'inventory': {'armor':'iron armor', 
+                      'melee':'jeweled dagger',
+                      'ranged':'ivory bow'},
         'AC': 13,
         'funds': {},
         'spells': [],
