@@ -33,8 +33,8 @@ to do your companion grabs your attantion, they gesture showing you that there a
         print("you go left:")
         room_3()
 def room_3():
-    print("you are in room three")
-    print("left right forward back")
+    print("you are at street three")
+    print("You look around the , on the left there is what looks to be an old shop, to the  right there is a house. There is also more street.")
     
     choice = input("left right forward back:")
     if choice == "left":
@@ -50,12 +50,23 @@ def room_3():
         print("you go back:")
         room_1()
 def room_9():
-    print("you are in room nine")
+    print("you enter the home")
+    print("As you enter the home you notice that there is a thick layer of dust over the    floor, you see a door and a staircase.")
+
+    choice = input("door, stairs or back:")
+    if choice == "door":
+        print("you go through the door:")
+        room_9a()
+
+def room_9a():
+    print("as you go through the door a deep stench hits you in the face")
+    print("You look around and you notice rusted pots and ketchen utensles.")
+    print("You also see a door across the room.") 
 
 def room_7():
-    print("you are in room seven") 
+    print("you continue down the street") 
     
 def room_5():
-    print("you are in room five")
+    print("you enter the shop")
 if __name__ == "__main__":
-    room_0()
+  room_0()
