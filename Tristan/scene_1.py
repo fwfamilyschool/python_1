@@ -21,7 +21,7 @@ inventory_list = ['rations', 'armor', 'weapons']
 def ironville():
     print("""Welcome to Ironville where the highest quality iron ore is
     mined and shipped to build the kingdom.""")
-    direction = input('what do you what to do? ')
+    direction = input('what do you what to do? go south east west north')
     if direction == 'east':
         print('in front of you you see a crossroads. You can go east west or south')
     else:
@@ -52,6 +52,8 @@ def main():
 # else: 
 #     verb = 'are all' if len(words) > 1 else 'is' 
 #     print(' and '.join(words), verb, 'in the list!')
+
+
 
 def iron_mine_entrance():
     print("""You walk up to the mine entrance you see a group of 10 soldiers.
