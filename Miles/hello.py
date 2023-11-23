@@ -95,14 +95,14 @@ def Forge_Quarters(character):
 
         def Iron_Dungeon_Northern(character):
             print("\n")
-            print("IRON DUNGEON (Northern)")
+            print("IRON DUNGEON (NORTHERN)")
     decide = input(" You are in the northern part of the room, as you enter this low lit room. You notice there are rows and rows of containment cells. there are large tunnels ahead to west, south and a ladder up.\n")
     if decide == ("up ladder"):
         Reflect_Room
     elif decide == ("south"):
         Iron_Dungeon_Southern(character)
-
-
+    elif decide == "west": 
+        Grand_Geyser(character)
 
 
 
@@ -116,11 +116,11 @@ def Reflect_Room(character):
         print("You come in front of this substance and you dont see any thing except a broken mirror shard that looks like a arrowhead on the floor by your feet.")
     if decide == "take":
         print('Taken, you try and look for how it broke and and you find somthing out of the ordinary')
-        print('it looks like this:')
+        print('it looks like this: It looks like a key hole.')
     print('  _______  ')
-    print(' /   |   \ ')    
+    print(' /       \ ')    
     print(' |   |   |')
-    print(' \ ______/  ')
+    print(' \______ /  ')
 
 
 
@@ -130,6 +130,61 @@ def Iron_Dungeon_Southern(character):
     print("\n")    
     print("IRON DUNGEON (SOUTHERN)")
     decide = input("You are in the southern part of the dungeon, a lot of cells as usual. there aren't any passages but what you do notice is a ")
+
+
+
+
+def Grand_Geyser(character):
+    print("\n")
+    print("GRAND GEYSER")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
