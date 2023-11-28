@@ -54,9 +54,9 @@ def Serpent_Arena(character):
             print("\n")
             print("Taken. \n")
     print("The hydra thanks you for your mercy. He vows to help you when you are in need.")
-    if decide == "look":
+    if response == "look":
         print("You are in the middle of a big arena, there are bridges northeast and west from here.")
-    elif decide == "northeast":
+    elif response == "northeast":
         Loud_Room(character)
 
  
