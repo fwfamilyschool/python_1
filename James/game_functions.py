@@ -259,6 +259,7 @@ def enter_combat(location_id, player_stats):
   f = open(player_config_file)
   data = json.load(f)
   data[player_stats['name']]['location'] = combat_uuid
+  data[player_stats['name']]['status'] = "combat"
 
   with open(player_config_file, 'w') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
@@ -282,6 +283,7 @@ def escape_combat(location_id, player_stats):
   f = open(player_config_file)
   data = json.load(f)
   data[player_stats['name']]['location'] = parent_location
+  data[player_stats['name']]['status'] = "exploring"
 
   with open(player_config_file, 'w') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
