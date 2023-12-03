@@ -27,26 +27,22 @@ def slowPrint(string, speed=0.00):
 # Get name of location from the location_id
 def get_location_info(location_id, player_status="exploring"):
   location_name = "Not Found"
-  location_name, location_description, location_type = "", "", ""
+  # location_name, location_description, location_type = "", "", ""
+
   if player_status == "exploring":
     f = open('game_files/Locations.json')
     data = json.load(f)
-    for i in data:
-      if data[i]['location_id'] == location_id:
-        location_name = data[i]['name']
-        location_description = data[i]['description']
-        location_type = data[i]['type']
-    f.close()
 
   elif player_status == "combat":
     f = open('game_files/NPCLocations.json')
     data = json.load(f)
-    for i in data:
-      if data[i]['location_id'] == location_id:
-        location_name = data[i]['name']
-        location_description = data[i]['description']
-        location_type = data[i]['type']
-    f.close()
+
+  for i in data:
+    if data[i]['location_id'] == location_id:
+      location_name = data[i]['name']
+      location_description = data[i]['description']
+      location_type = data[i]['type']
+  f.close()
 
   return(location_name, location_description, location_type)
 
@@ -79,9 +75,9 @@ def get_monster_count(location_id):
   return(monster_count)
 
 
-def get_mob_paths(location_id, path_count = 1):
+def get_mob_paths(location_id, path_count = 1, player_status="exploring"):
   file_path = 'game_files/NPCPaths.json'
-  cur_location_name, cur_location_desc, cur_location_type = get_location_info(location_id)
+  cur_location_name, cur_location_desc, cur_location_type = get_location_info(location_id, player_status)
 
   paths = []
   path_list = {}
@@ -115,13 +111,13 @@ def get_mob_paths(location_id, path_count = 1):
     path_list[path_count]["name"] = name
     path_count = path_count + 1
 
-  return(path_list)
+  return(path_list, path_count)
 
 
 # Get paths from a location based on location_id
-def get_paths(location_id):
+def get_paths(location_id, player_status):
   file_path = 'game_files/Paths.json'
-  cur_location_name, cur_location_desc, cur_location_type = get_location_info(location_id)
+  cur_location_name, cur_location_desc, cur_location_type = get_location_info(location_id, player_status)
 
   # get paths from a location
   paths = []
@@ -145,19 +141,21 @@ def get_paths(location_id):
       pass
   f.close()
 
+  # Need to keep track of how many paths, so we can pass it to the MOB path count.  That way numbers continue for selection
   path_count = 1
   for path_id in paths:
     location1 = data[path_id]['location1Key']
     location2 = data[path_id]['location2Key']
-    name, loc_desc, loc_type = get_location_info(location1)
+
+    name, loc_desc, loc_type = get_location_info(location1, player_status)
 
     if cur_location_name == name:
-      name, loc_desc, loc_type = get_location_info(location2)
+      name, loc_desc, loc_type = get_location_info(location2, player_status)
       path_list[path_count] = {}
       path_list[path_count]["path_id"] = path_id
-      path_list[path_count]["destination"] = location1
+      path_list[path_count]["destination"] = location2
       path_list[path_count]["name"] = name
-      path_count =  + 1
+      path_count = path_count + 1
     else:
       path_list[path_count] = {}
       path_list[path_count]["path_id"] = path_id
@@ -319,6 +317,40 @@ def explore(location_id, player_stats):
   return(location_id)
 
 # Travel to a new location
+def travel_to_mob_site(current_location_id, path_id, player_stats):
+  player_status = player_stats['status']
+  # read all path data from JSON file
+  f = open('game_files/NPCPaths.json')
+  location_paths = json.load(f)
+  f.close()
+
+  # Make sure you travel the right way through a path
+  if current_location_id == location_paths[path_id]['location1Key']:
+    destination_location_id = location_paths[path_id]['location2Key']
+  else:
+    destination_location_id = location_paths[path_id]['location1Key']
+
+  name, loc_desc, loc_type = get_location_info(destination_location_id, "combat")
+
+  print(f"You are walking to {name}.")
+  slowPrint("....",1)
+
+  print("You have arrived.")
+  destination_id = destination_location_id
+
+  # Update player location in config
+  player_config_file = 'game_files/player_stats.json'
+  f = open(player_config_file)
+  data = json.load(f)
+  data[player_stats['name']]['location'] = destination_id
+  data[player_stats['name']]['status'] = "combat"
+
+  with open(player_config_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+  return(destination_id, player_stats)
+
+# Travel to a new location
 def travel(current_location_id, path_id, player_stats):
   # read all path data from JSON file
   f = open('game_files/Paths.json')
@@ -335,7 +367,7 @@ def travel(current_location_id, path_id, player_stats):
     destination_location_id = location_paths[path_id]['location1Key']
   travel_success = random.randint(1, 100)
 
-  name, loc_desc, loc_type = get_location_info(destination_location_id)
+  name, loc_desc, loc_type = get_location_info(destination_location_id, player_status)
 
   if discoveryChance == 0:
     print(f"You are walking to {name}.")
