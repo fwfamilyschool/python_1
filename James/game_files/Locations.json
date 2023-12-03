@@ -12,7 +12,7 @@
     "name":"TownsVille Inn",
     "description": "This is the Inn at TownsVille.  Feel free to rest up.",
     "maxMonsterCount": 0,
-    "type": "RestSite",
+    "type": "rest_site",
     "encounterChance":0
   },
   "2":{

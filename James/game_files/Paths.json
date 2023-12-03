@@ -9,7 +9,7 @@
         "description": "TownsVille to TownsVille Countryside",
         "location1Key": 0,
         "location2Key": 2,
-        "discoveryChance":40
+        "discoveryChance":0
     },
     "2": {
         "description": "TownsVille Countryside to Dark Woods",
