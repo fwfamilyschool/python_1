@@ -48,6 +48,25 @@ def get_location_info(location_id, player_status="exploring"):
 
 
 # Get name of location from the location_id
+def get_mob_info(mob_id):
+  mob_info = {}
+  f = open('game_files/NPCList.json')
+  data = json.load(f)
+  for i in data:
+    if data[i]['mob_id'] == mob_id:
+      mob_info['name'] = data[i]['name']
+      mob_info['location'] = data[i]['location']
+      mob_info['strength'] = data[i]['strength']
+      mob_info['dexterity'] = data[i]['dexterity']
+      mob_info['intelligence'] = data[i]['intelligence']
+      mob_info['itemSpawners'] = data[i]['itemSpawners']
+      mob_info['hitpoints'] = data[i]['hitpoints']
+  f.close()
+
+  return(mob_info)
+
+
+# Get name of location from the location_id
 def get_mob_location_info(location_id):
   location_name = "Not Found"
 
@@ -262,7 +281,7 @@ def enter_combat(location_id, player_stats):
   with open(player_config_file, 'w') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
-  # print(mob)
+  return(combat_uuid)
 
 
 def escape_combat(location_id, player_stats):
@@ -352,6 +371,7 @@ def travel_to_mob_site(current_location_id, path_id, player_stats):
 
 # Travel to a new location
 def travel(current_location_id, path_id, player_stats):
+  player_status = player_stats['status']
   # read all path data from JSON file
   f = open('game_files/Paths.json')
   location_paths = json.load(f)
@@ -383,11 +403,9 @@ def travel(current_location_id, path_id, player_stats):
 
   if ambush == True:
     print("You have been ambushed.")
-    success = enter_combat(destination_location_id, player_stats)
-    if success == True:
-      destination_id = destination_location_id
-    else:
-      destination_id = current_location_id
+    combat_uuid = enter_combat(destination_location_id, player_stats)
+    destination_id = combat_uuid
+
   else:
     print("You have arrived.")
     destination_id = destination_location_id
