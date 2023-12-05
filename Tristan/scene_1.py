@@ -117,7 +117,7 @@ Choose: attack and you Succeed""") ("""After you attack them you see iorn in the
     ("""Return to the main hallway.
     Head North back to entrance, Head East back to room, Head south going further in mine.
     Head south going further in mine
-    Entering another room you meet another human. They are able to heal you. and you see    torchis in this room
+    Entering another room you meet another human. They are able to heal you. and you see torchis in this room
     and you see
     wood holding the roof and you see and you see the ground is rocke""")
 
