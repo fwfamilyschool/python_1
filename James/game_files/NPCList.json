@@ -1,0 +1,62 @@
+{
+    "c8de4c87": {
+        "mob_id": "c8de4c87",
+        "name": "Kobold",
+        "location": 3,
+        "strength": 7,
+        "dexterity": 3,
+        "intelligence": 4,
+        "itemSpawners": null,
+        "hitpoints": 17
+    },
+    "c2637dd3": {
+        "mob_id": "c2637dd3",
+        "name": "Kobold",
+        "location": 3,
+        "strength": 4,
+        "dexterity": 2,
+        "intelligence": 4,
+        "itemSpawners": null,
+        "hitpoints": 15
+    },
+    "b0ae3ae2": {
+        "mob_id": "b0ae3ae2",
+        "name": "Kobold",
+        "location": 3,
+        "strength": 7,
+        "dexterity": 2,
+        "intelligence": 3,
+        "itemSpawners": null,
+        "hitpoints": 15
+    },
+    "937db3ac": {
+        "mob_id": "937db3ac",
+        "name": "Kobold",
+        "location": 3,
+        "strength": 6,
+        "dexterity": 4,
+        "intelligence": 4,
+        "itemSpawners": null,
+        "hitpoints": 13
+    },
+    "04aed55a": {
+        "mob_id": "04aed55a",
+        "name": "Kobold",
+        "location": 3,
+        "strength": 6,
+        "dexterity": 3,
+        "intelligence": 3,
+        "itemSpawners": null,
+        "hitpoints": 14
+    },
+    "1e799c2d": {
+        "mob_id": "1e799c2d",
+        "name": "Kobold",
+        "location": 3,
+        "strength": 6,
+        "dexterity": 4,
+        "intelligence": 4,
+        "itemSpawners": null,
+        "hitpoints": 16
+    }
+}
