@@ -106,39 +106,24 @@ def room_4():
   Options: ("attack, Talk, Sneak or Leave")
   Choose: ("attack and you Succeed")
   
-def room_5():
-  print("""Continuing down the tunnel. Options: Continue forward or Turn
-East. Choose: turn East""")
-print("""you see and you see wood holding the roof and you
-    see torchis on the wall and you see the ground is rocky""")
-print("""Continue
-    forward or Turn East.Choose: turn East""")
-def room_6():
-  print("""Leads you to another room that has 2 Orcs and 1 Gobblin.
-Options: attack, Talk, or Leave Choose: attack and you Succeed""")
-
-def room_7():
-  print("""Return to the main hallway. Options: Head North back to entrance,
-  Head East back to room, Head south going further in mine.""")
-
-def room_8():
-  print("Choose: Head south going further in mine Entering another room")
-
-def room_9():
-  print("""Return to Main room. Options: Enter tunnels on East, West or South.
-  Choose: You proceed to tunnel to the West. or you go south then you see 3 goblin""")
-  
-  Return to Main room
-*Options: Enter tunnels on East, West or South.
-Choose: You proceed to tunnel to the West.
-you see a big room with
-and you see mose you see a  chest you open the chest in the ther is a gratsword
-and you see  wood holding the roof and you see and you see the ground is smoth
-you return to the main hallway you go down the stairs you see 3 goblins in the
-room you attack them you are loy in helth so you ask you'er ferend to heals you and
-you go in a another room you see orcs and goblin garding ther boos it is a orc you
-attack all of them and you see mose on the ground  wood holding the roof and you see
-and you see the ground is smoth
-  if name == "main":
+# def room_5():
+#   print("""Continuing down the tunnel. Options: Continue forward or Turn East. Choose: turn East""")
+#
+# def room_6():
+#   print("""Leads you to another room that has 2 Orcs and 1 Gobblin.
+# Options: attack, Talk, or Leave Choose: attack and you Succeed""")
+#
+# def room_7():
+#   print("""Return to the main hallway. Options: Head North back to entrance,
+#   Head East back to room, Head south going further in mine.""")
+#
+# def room_8():
+#   print("""Choose: Head south going further in mine Entering another room
+#   you meet another human. They are able to heal you""")
+#
+# def room_9():
+#   print("""Return to Main room. Options: Enter tunnels on East, West or South.
+#   Choose: You proceed to tunnel to the West. or you go south then you see 3 goblin""")
+#   if name == "main":
 
 main()
