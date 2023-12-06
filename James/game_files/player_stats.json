@@ -1,0 +1,53 @@
+{
+    "James": {
+        "name": "James",
+        "hitpoints": 50,
+        "max_hp": 50,
+        "strength": 5,
+        "dexterity": 5,
+        "intelligence": 5,
+        "left_hand": "none",
+        "right_hand": "none",
+        "helmet": "none",
+        "chestplate": "none",
+        "leggings": "none",
+        "gloves": "none",
+        "boots": "none",
+        "location": 3,
+        "status": "combat"
+    },
+    "Asher": {
+        "name": "Asher",
+        "hitpoints": 50,
+        "max_hp": 50,
+        "strength": 5,
+        "dexterity": 5,
+        "intelligence": 5,
+        "left_hand": "none",
+        "right_hand": "none",
+        "helmet": "none",
+        "chestplate": "none",
+        "leggings": "none",
+        "gloves": "none",
+        "boots": "none",
+        "location": 0,
+        "status": "exploring"
+    },
+    "Miles": {
+        "name": "Miles",
+        "hitpoints": 50,
+        "max_hp": 50,
+        "strength": 5,
+        "dexterity": 5,
+        "intelligence": 5,
+        "left_hand": "none",
+        "right_hand": "none",
+        "helmet": "none",
+        "chestplate": "none",
+        "leggings": "none",
+        "gloves": "none",
+        "boots": "none",
+        "location": 0,
+        "status": "exploring"
+    }
+}

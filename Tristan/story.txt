@@ -24,8 +24,7 @@ Enter MainRoom
 			result: the goblin attack
  Option:Search Room or move on
 	Chose: Looking around 
-		you see pickaxe markings on all the walls.You notice in the rocks on the floor and in the walls that they have iron in them. You see wood holding the roof and the unfinished rail. You notice torches on the walls. You see tunnels on the East, West and South
-Option: grab 
+		you see pickaxe markings on all the walls.You notice in the rocks on the floor and in the walls that they have iron in them. You see wood holding the roof and the unfinished rail. You notice torches on the walls. You see tunnels on the East, West and South 
 *Options: Enter tunnels on East, West or South.
 Choose: You proceed to tunnel to the East
 
