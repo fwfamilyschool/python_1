@@ -2,29 +2,33 @@
   "0":{
     "location_id": 0,
     "name": "TownsVille",
+    "description": "Welcome to the home town of TownsVille, where the name is generic, because I can't think of anything better.",
     "maxMonsterCount": 0,
     "type": "town",
-    "description": "Welcome to the home town of TownsVille, where the name is generic, because I can't think of anything better."
+    "encounterChance":0
   },
   "1":{
     "location_id": 1,
     "name":"TownsVille Inn",
+    "description": "This is the Inn at TownsVille.  Feel free to rest up.",
     "maxMonsterCount": 0,
-    "type": "RestSite",
-    "description": "This is the Inn at TownsVille.  Feel free to rest up."
+    "type": "rest_site",
+    "encounterChance":0
   },
   "2":{
     "location_id": 2,
     "name": "TownsVille Countryside",
+    "description": "You've reached the countryside, where population is sparse.  Be careful as you travel, a monster might find you.",
     "maxMonsterCount": 5,
     "type": "combat",
-    "description": "You've reached the countryside, where population is sparse.  Be careful as you travel, a monster might find you."
+    "encounterChance":60
   },
   "3":{
     "location_id": 3,
     "name": "Dark Woods",
+    "description": "The woods around you block out the light.  There is an eerie feeling in the trees.  Be careful.",
     "maxMonsterCount": 5,
     "type": "combat",
-    "description": "The woods around you block out the light.  There is an eerie feeling in the trees.  Be careful."
+    "encounterChance":70
   }
 }

@@ -13,7 +13,8 @@
         "leggings": "none",
         "gloves": "none",
         "boots": "none",
-        "location": 0
+        "location": 3,
+        "status": "combat"
     },
     "Asher": {
         "name": "Asher",
@@ -29,10 +30,18 @@
         "leggings": "none",
         "gloves": "none",
         "boots": "none",
+<<<<<<< HEAD
         "location": 0
     },
     "asher": {
         "name": "asher",
+=======
+        "location": 0,
+        "status": "exploring"
+    },
+    "Miles": {
+        "name": "Miles",
+>>>>>>> e69ea9d689bef38e55f47d5104b1170b38b203c0
         "hitpoints": 50,
         "max_hp": 50,
         "strength": 5,
@@ -45,6 +54,11 @@
         "leggings": "none",
         "gloves": "none",
         "boots": "none",
+<<<<<<< HEAD
         "location": 0
+=======
+        "location": 0,
+        "status": "exploring"
+>>>>>>> e69ea9d689bef38e55f47d5104b1170b38b203c0
     }
 }

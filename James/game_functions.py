@@ -3,6 +3,7 @@ import time
 import sys
 import json
 import random
+import uuid
 
 
 # class Monster:
@@ -24,10 +25,52 @@ def slowPrint(string, speed=0.00):
 
 
 # Get name of location from the location_id
-def get_location_info(location_id):
+def get_location_info(location_id, player_status="exploring"):
+  location_name = "Not Found"
+  # location_name, location_description, location_type = "", "", ""
+
+  if player_status == "exploring":
+    f = open('game_files/Locations.json')
+    data = json.load(f)
+
+  elif player_status == "combat":
+    f = open('game_files/NPCLocations.json')
+    data = json.load(f)
+
+  for i in data:
+    if data[i]['location_id'] == location_id:
+      location_name = data[i]['name']
+      location_description = data[i]['description']
+      location_type = data[i]['type']
+  f.close()
+
+  return(location_name, location_description, location_type)
+
+
+# Get name of location from the location_id
+def get_mob_info(mob_id):
+  mob_info = {}
+  f = open('game_files/NPCList.json')
+  data = json.load(f)
+  for i in data:
+    if data[i]['mob_id'] == mob_id:
+      mob_info['name'] = data[i]['name']
+      mob_info['location'] = data[i]['location']
+      mob_info['strength'] = data[i]['strength']
+      mob_info['dexterity'] = data[i]['dexterity']
+      mob_info['intelligence'] = data[i]['intelligence']
+      mob_info['itemSpawners'] = data[i]['itemSpawners']
+      mob_info['hitpoints'] = data[i]['hitpoints']
+  f.close()
+
+  return(mob_info)
+
+
+# Get name of location from the location_id
+def get_mob_location_info(location_id):
   location_name = "Not Found"
 
-  f = open('game_files/Locations.json')
+  f = open('game_files/NPCLocations.json')
   data = json.load(f)
   for i in data:
     if data[i]['location_id'] == location_id:
@@ -51,14 +94,15 @@ def get_monster_count(location_id):
   return(monster_count)
 
 
-# Get paths from a location based on location_id
-def get_paths(location_id):
-  # get paths from a location
+def get_mob_paths(location_id, path_count = 1, player_status="exploring"):
+  file_path = 'game_files/NPCPaths.json'
+  cur_location_name, cur_location_desc, cur_location_type = get_location_info(location_id, player_status)
+
   paths = []
   path_list = {}
 
   # read the data from JSON file
-  f = open('game_files/Paths.json')
+  f = open(file_path)
   data = json.load(f)
 
   # Match paths that have current location as 'location1Key' in path
@@ -66,37 +110,127 @@ def get_paths(location_id):
     try:
       if location_id == data[i]['location1Key']:
         paths.append(i)
-      # elif location_id == data[i]['location2Key']:
-      #   paths.append(i)
+    except:
+      pass
+    try:
+      if location_id == data[i]['location2Key']:
+        paths.append(i)
+    except:
+      pass
+
+  f.close()
+
+  for path_id in paths:
+    location2 = data[path_id]['location2Key']
+    name, loc_desc, loc_type = get_mob_location_info(location2)
+
+    path_list[path_count] = {}
+    path_list[path_count]["path_id"] = path_id
+    path_list[path_count]["destination"] = location2
+    path_list[path_count]["name"] = name
+    path_count = path_count + 1
+
+  return(path_list, path_count)
+
+
+# Get paths from a location based on location_id
+def get_paths(location_id, player_status):
+  file_path = 'game_files/Paths.json'
+  cur_location_name, cur_location_desc, cur_location_type = get_location_info(location_id, player_status)
+
+  # get paths from a location
+  paths = []
+  path_list = {}
+
+  # read the data from JSON file
+  f = open(file_path)
+  data = json.load(f)
+
+  # Match paths that have current location as 'location1Key' in path
+  for i in data:
+    try:
+      if location_id == data[i]['location1Key']:
+        paths.append(i)
+    except:
+      pass
+    try:
+      if location_id == data[i]['location2Key']:
+        paths.append(i)
     except:
       pass
   f.close()
 
-  x = 0
+  # Need to keep track of how many paths, so we can pass it to the MOB path count.  That way numbers continue for selection
+  path_count = 1
   for path_id in paths:
-    destination = data[path_id]['location2Key']
-    name, loc_desc, loc_type = get_location_info(destination)
-    path_list[x] = {}
-    path_list[x]["path_id"] = path_id
-    path_list[x]["name"] = name
-    path_list[x]["destination"] = destination
-    x = x + 1
+    location1 = data[path_id]['location1Key']
+    location2 = data[path_id]['location2Key']
 
-  return(path_list)
+    name, loc_desc, loc_type = get_location_info(location1, player_status)
+
+    if cur_location_name == name:
+      name, loc_desc, loc_type = get_location_info(location2, player_status)
+      path_list[path_count] = {}
+      path_list[path_count]["path_id"] = path_id
+      path_list[path_count]["destination"] = location2
+      path_list[path_count]["name"] = name
+      path_count = path_count + 1
+    else:
+      path_list[path_count] = {}
+      path_list[path_count]["path_id"] = path_id
+      path_list[path_count]["destination"] = location1
+      path_list[path_count]["name"] = name
+      path_count = path_count + 1
+
+  return(path_list, path_count)
 
 
-def generate_combat_site(destination_location_id):
-  pass
+def generate_combat_site(location_id, combat_uuid, mob_name):
+  combat_site = {
+    'location_id': combat_uuid,
+    'parent_location': location_id,
+    'name': f"Combat Site - {mob_name}",
+    'description': f"Combat Site - {mob_name}",
+    'type': "combat_site"
+  }
+
+  # Update NPCLocations with new location
+  NPCLocations_file = 'game_files/NPCLocations.json'
+  f = open(NPCLocations_file)
+  data = json.load(f)
+  data[combat_site['location_id']] = combat_site
+
+  with open(NPCLocations_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+  return(combat_site)
 
 
-def generate_mob(destination_location_id):
+def generate_mob_path(location_id, combat_uuid):
+  mob_path = {
+    'mob_id': combat_uuid,
+    'location1Key': location_id,
+    'location2Key': combat_uuid
+  }
+
+  # Update NPCPaths file with new path
+  NPCPaths_file = 'game_files/NPCPaths.json'
+  f = open(NPCPaths_file)
+  data = json.load(f)
+  data[mob_path['mob_id']] = mob_path
+
+  with open(NPCPaths_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+def generate_mob(location_id, combat_uuid):
   # read monsters for a given location
   f = open('game_files/MonsterSpawner.json')
   monster_list = json.load(f)
   f.close()
 
   for monster in monster_list:
-    if destination_location_id == monster_list[monster]['locationKey']:
+    if location_id == monster_list[monster]['locationKey']:
       npc = monster_list[monster]['npcDefKey']
 
   # generate new monster based on NPC Definition file
@@ -106,7 +240,9 @@ def generate_mob(destination_location_id):
   npc = npc_list[str(npc)]
 
   mob = {
+    'mob_id': combat_uuid,
     'name': npc['name'],
+    'location': location_id,
     'strength': random.randrange(npc['strength'][0], npc['strength'][1]),
     'dexterity': random.randrange(npc['dexterity'][0], npc['dexterity'][1]),
     'intelligence': random.randrange(npc['intelligence'][0], npc['intelligence'][1]),
@@ -114,25 +250,128 @@ def generate_mob(destination_location_id):
     'hitpoints': random.randrange(npc['hitpoints'][0], npc['hitpoints'][1]),
   }
 
+  # Update NPCList with new mob
+  NPCList_file = 'game_files/NPCList.json'
+  f = open(NPCList_file)
+  data = json.load(f)
+  data[mob['mob_id']] = mob
+
+  with open(NPCList_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
   return(mob)
 
 
-def enter_combat(destination_location_id):
-  combat_site = generate_combat_site(destination_location_id)
-  mob = generate_mob(destination_location_id)
+def enter_combat(location_id, player_stats):
+  combat_uuid = str(uuid.uuid4())[:8]
+  mob = generate_mob(location_id, combat_uuid)
+  combat_site = generate_combat_site(location_id, combat_uuid, mob['name'])
+  mob = generate_mob(location_id, combat_uuid)
+  generate_mob_path(location_id, combat_uuid)
+
   print(f"A {mob['name']} found you. Time to show him what's for!")
+
+  # Update player location in config
+  player_config_file = 'game_files/player_stats.json'
+  f = open(player_config_file)
+  data = json.load(f)
+  data[player_stats['name']]['location'] = combat_uuid
+  data[player_stats['name']]['status'] = "combat"
+
+  with open(player_config_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+  return(combat_uuid)
+
+
+def escape_combat(location_id, player_stats):
+  file_path = 'game_files/NPCPaths.json'
+
+  # read the data from JSON file
+  f = open(file_path)
+  data = json.load(f)
+
+  parent_location = data[location_id]['location1Key']
+
+  f.close()
+
+  # Update player location in config
+  player_config_file = 'game_files/player_stats.json'
+  f = open(player_config_file)
+  data = json.load(f)
+  data[player_stats['name']]['location'] = parent_location
+  data[player_stats['name']]['status'] = "exploring"
+
+  with open(player_config_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+  return(parent_location)
 
 
 # Explore a location for monsters
-def explore(location_id):
-  print("You are exploring")
-  slowPrint("....",1)
-  print("You don't find anything.")
-  # enter_combat(location_id)
+def explore(location_id, player_stats):
+  # read all location data from JSON file
+  f = open('game_files/Locations.json')
+  locations = json.load(f)
+  f.close()
 
+  # Get data to calculate if you find a monster
+  encounterChance = locations[str(location_id)]['encounterChance']
+  encounter_success = random.randint(1, 100)
+
+  if encounterChance == 0:
+    print(f"There is not much in this area to explore.")
+    slowPrint("....",1)
+    print(f"Yup, as you thought.  Nothing here.")
+  else:
+    print(f"You exploring the area.  Let's see what you find.")
+    slowPrint("....",1)
+    if encounterChance < encounter_success:
+      print("You haven't found aything.")
+    else:
+      print("You have found something.")
+      new_location_id = enter_combat(location_id, player_stats)
+      location_id = new_location_id
+
+  return(location_id)
+
+# Travel to a new location
+def travel_to_mob_site(current_location_id, path_id, player_stats):
+  player_status = player_stats['status']
+  # read all path data from JSON file
+  f = open('game_files/NPCPaths.json')
+  location_paths = json.load(f)
+  f.close()
+
+  # Make sure you travel the right way through a path
+  if current_location_id == location_paths[path_id]['location1Key']:
+    destination_location_id = location_paths[path_id]['location2Key']
+  else:
+    destination_location_id = location_paths[path_id]['location1Key']
+
+  name, loc_desc, loc_type = get_location_info(destination_location_id, "combat")
+
+  print(f"You are walking to {name}.")
+  slowPrint("....",1)
+
+  print("You have arrived.")
+  destination_id = destination_location_id
+
+  # Update player location in config
+  player_config_file = 'game_files/player_stats.json'
+  f = open(player_config_file)
+  data = json.load(f)
+  data[player_stats['name']]['location'] = destination_id
+  data[player_stats['name']]['status'] = "combat"
+
+  with open(player_config_file, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+  return(destination_id, player_stats)
 
 # Travel to a new location
 def travel(current_location_id, path_id, player_stats):
+  player_status = player_stats['status']
   # read all path data from JSON file
   f = open('game_files/Paths.json')
   location_paths = json.load(f)
@@ -140,10 +379,15 @@ def travel(current_location_id, path_id, player_stats):
 
   # Get data to calculate if you find a monster
   discoveryChance = location_paths[path_id]['discoveryChance']
-  destination_location_id = location_paths[path_id]['location2Key']
+
+  # Make sure you travel the right way through a path
+  if current_location_id == location_paths[path_id]['location1Key']:
+    destination_location_id = location_paths[path_id]['location2Key']
+  else:
+    destination_location_id = location_paths[path_id]['location1Key']
   travel_success = random.randint(1, 100)
 
-  name, loc_desc, loc_type = get_location_info(destination_location_id)
+  name, loc_desc, loc_type = get_location_info(destination_location_id, player_status)
 
   if discoveryChance == 0:
     print(f"You are walking to {name}.")
@@ -159,11 +403,9 @@ def travel(current_location_id, path_id, player_stats):
 
   if ambush == True:
     print("You have been ambushed.")
-    success = enter_combat(destination_location_id)
-    if success == True:
-      destination_id = destination_location_id
-    else:
-      destination_id = current_location_id
+    combat_uuid = enter_combat(destination_location_id, player_stats)
+    destination_id = combat_uuid
+
   else:
     print("You have arrived.")
     destination_id = destination_location_id

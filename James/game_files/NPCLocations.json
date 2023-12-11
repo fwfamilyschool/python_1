@@ -1,0 +1,44 @@
+{
+    "c8de4c87": {
+        "location_id": "c8de4c87",
+        "parent_location": 3,
+        "name": "Combat Site - Kobold",
+        "description": "Combat Site - Kobold",
+        "type": "combat_site"
+    },
+    "c2637dd3": {
+        "location_id": "c2637dd3",
+        "parent_location": 3,
+        "name": "Combat Site - Kobold",
+        "description": "Combat Site - Kobold",
+        "type": "combat_site"
+    },
+    "b0ae3ae2": {
+        "location_id": "b0ae3ae2",
+        "parent_location": 3,
+        "name": "Combat Site - Kobold",
+        "description": "Combat Site - Kobold",
+        "type": "combat_site"
+    },
+    "937db3ac": {
+        "location_id": "937db3ac",
+        "parent_location": 3,
+        "name": "Combat Site - Kobold",
+        "description": "Combat Site - Kobold",
+        "type": "combat_site"
+    },
+    "04aed55a": {
+        "location_id": "04aed55a",
+        "parent_location": 3,
+        "name": "Combat Site - Kobold",
+        "description": "Combat Site - Kobold",
+        "type": "combat_site"
+    },
+    "1e799c2d": {
+        "location_id": "1e799c2d",
+        "parent_location": 3,
+        "name": "Combat Site - Kobold",
+        "description": "Combat Site - Kobold",
+        "type": "combat_site"
+    }
+}
