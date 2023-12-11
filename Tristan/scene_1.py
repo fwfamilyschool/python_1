@@ -26,7 +26,7 @@ def ironville():
         print('in front of you you see a crossroads. You can go east west or south')
     else:
         print('You exit the town and head to the mine.')    
-iron_mine_entrance()
+    iron_mine_entrance()
 
 def main():
     ironville()
@@ -60,15 +60,15 @@ The air is damp. The rails are blocked by a barricade.""")
         action = input ("Do You want take the pickaxe?")
         if action == "yes":
             print("You use the pickaxe to break through the barricade.")
-        elif: 
-            print("You take apart the barricade of stone ")
+        elif action == "no":
+            print("You take apart the barricade of stone tearing your fingers to shreds. You take 10 points of damage. ")
         else:
             print("You go back to Ironville...coward")
             leave = ironville()
-       main_room():
+        main_room()
 
 def main_room():
-    hitpoints=100
+    hitpoints=90
     resistance=15
     print("""You see a Goblin in the middle of the room. He has his back
 to you. Since he heard you break throught the barricade he quickly turns
@@ -98,21 +98,21 @@ Choose: You proceed to tunnel to the South""")
     print("""You see torchis in this tunnel Heading south, deeper in the
     mine,you see 2 orcs amd you see wood holding the roof and
     you see.""")
- room_4()   
+    room_4()   
 def room_4():
     print("""Heading south, deeper in the mine, you see 2 orcs.
     Options: attack, Talk, Sneak or Leave
     Choose: attack and you Succeed""")
-   room_5()
+    room_5()
 def room_5():
     print("""Continuing down the tunnel. Continue forward or Turn East.
     Choose: turn East""") ("""You see wood holding the roof and you see torchis
     on the wall and you see the ground is rocky""")
-room_6()
+    room_6()
 def room_6():
     print("""Leads you to another room that has 2 Orcs and 1 Gobblin. 
-Options: attack, Talk, or Leave
-Choose: attack and you Succeed""") ("""After you attack them you see iorn in the walls and on
+    Options: attack, Talk, or Leave
+    Choose: attack and you Succeed""") ("""After you attack them you see iorn in the walls and on
     the floor thare is rooks and ther is wood holding the roof and you see and you see the ground is rocky""")
     ("""Return to the main hallway.
     Head North back to entrance, Head East back to room, Head south going further in mine.
@@ -121,18 +121,18 @@ Choose: attack and you Succeed""") ("""After you attack them you see iorn in the
     and you see
     wood holding the roof and you see and you see the ground is rocke""")
 
-room_7():
+    room_7()
 def room_7():
     print("""Return to the main hallway.
-Options: Head North back to entrance, Head East back to room, Head south
-going further in mine.""")
+    Options: Head North back to entrance, Head East back to room, Head south
+    going further in mine.""")
 
-room_8()
+    room_8()
 def room_8():
     print("""Choose: Head south going further in mine
-Entering another room """)
+    Entering another room """)
 
-room_9()
+    room_9()
 def room_9():
     print("""Enter tunnels on East, West or South.Choose: You proceed to
 tunnel to the West. or you go south then you see 3 goblin  you see a big room with
