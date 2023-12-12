@@ -1,0 +1,182 @@
+def Living_room (character):
+    print("You are staying at home for a quiet late night, you are watching various channels on your Samsung television, and you hear suspicious banging sounds in your basement. Do you walk over to the door to the downstairs and investigate the strange sounds? ")
+    choice5 = input("Choose yes or no. ")
+    choice_made = False
+    while choice_made == False:
+        if choice5 == "yes":
+            print ("You grab your flashlight, and open the basement door slowly, but find that there is nothing causing noise, anymore. ")
+            choice_made = True
+            Basement(character)
+        elif choice5 == "no":
+            print ("You turn away from the door and continue to watch TV, but, you see a shadow outside! You now wish you would have checked downstairs, for the thing that was making such racket! ")
+            print ("The thing swoops toward the window, and with a sickening sound of shattering glass, you behold a Twisted Demon! with a ear grating shriek from its dry throat, it devours you! *You Died!* ")
+            choice_made = True
+            Living_room(character)
+        else: choice5 = input("choose yes or no: ")
+
+
+
+
+def Basement(character):
+    choice = input("You enter the basement, and turn the lights on. you try to take a step, when a large, gaping hole opens in the ground. you fall for a long amount of time, then, you meet the ground without injury, and see that you might have fallen into some sort of tunnel! a sword lying on the ground has an eerie glow to it. Would you like to pick  up, or leave it there? (pick up or leave sword) ")
+    if choice == "pick up":
+        choice = input ("You have picked up the sword, it feels chilly to the touch, but can now light your way through the cave! you proceed on through the dark tunnel, when you notice something odd about the walls. the tunnel slowly widens into a large room. a neatly enveloped piece of paper is on the floor. 'read paper' or 'leave' ")
+    elif choice == "leave sword":
+        choice = input ("You have left the sword where it is. you proceed on through the dark room. and you find a small, neatly enveloped piece of paper. do you read the paper, or leave? ('read paper' or 'leave')")
+    if choice == "read paper":
+            choice = input ("'Hello, and welcome to Cave Crawler, World Underground! this game mainly deals with basic combat strategy, problem solving, and putting your intellect to good use. this note is also a clue to the 'Tuff' Maze. head east, south, south, west, west, east, north, east, this is where you fight the Salt Shelled Spider Crab, south, east, this is where the Tree Headed Grue is, and, north, west, north, east, and, south. now, you have solved the 'Tuff' Maze! have fun defeating the Infernal Skull Dragon! Don't die!' A large opening waits in front of you, do you go through the dark tunnel? choose 'proceed' or leave' ")
+    if choice == "proceed":
+               choice = input ("You have chosen to continue walking through the cave tunnel. and pause for a minute to admire some art on the walls. no, keep going! You've not the time for this! do you shake yourself from this distraction? 'yes' or 'no' ")
+    if choice == "yes":
+            choice = input ("You have chosen to leave the art behind. Do you continue to walk through this dark dank tunnel? 'yes' or 'no' ")
+    if choice == "yes":
+            choice = input ("The tunnel is growing darker, and you get the feeling that something is watching your movements, and is probably waiting to strike. Do you still want to proceed on, or go back, and get the glowing sword? choose 'yes' or 'no'")
+    if choice == "no":
+        choice == input ("You continue walking through the dark halls, and also seem to still feel unsettled about what may be lurking around, you hear ominous noises, and also hear whisperings in the walls, suddenly, some unseen force flew straight through the wall, you start to feel choked, and draw your sword, seemingly from thin air, and swipe at the air! *You gained 20 Telerium!*...you feel relieved of oxegen deprivation, and stare marvellingly at the sword and its loyalty towards you... would you like to press on, with courage in your soul, or CHICKEN OUT!? choose 'proceed' or 'go back' ")
+        if choice == "proceed":
+            Tuff_Maze()
+        elif choice == "go back":
+            print("A grue slithers up and devours you.")
+    elif choice == "yes":
+        choice = input ("You look back at where you once saw the sword, but you find nothing. 'proceed' or 'leave' ")
+        if choice == "proceed":
+                Tuff_Maze()
+        elif choice == "leave":
+                print("A giant spider suddenly appears, wrapping you up in its web. You slowly suffocate and expire.")
+
+
+def Tuff_Maze():
+    choice = input ("You have come to the 'Tuff' Maze - clever, huh?... the entrance seems suspicious, but the feeling of adventure flares up inside you, you head inside, and you find the paths to the east, and north. which way to go? ")
+    if choice == "north":
+        print ("Dead End. you have come to a dead end in the maze. ")
+    elif choice == "east":
+        First_Quarter()
+
+
+def First_Quarter():
+    choice = input("First Quarter; there are openings to your left, heading east and south, and west. where to go? ")
+    if choice == "south":
+        Second_Quarter()  
+
+
+def Second_Quarter():  
+    choice = input ("Second Quarter; You find openings to the southern and and northern sides of the quarter. choose 'south' or 'north' ")
+    if choice == "south":
+        Third_Quarter()
+
+
+def Third_Quarter():
+    choice = input ("Third Quarter; You have come to a room which currently has nothing in particular, catching your interest... tunnels to 'north' and 'west'. ")
+    if choice == "north":
+        choice = input ("Dead end again... ")
+    elif choice == "west":
+        Fourth_Quarter()
+
+
+def Fourth_Quarter():
+    choice = input ("Fourth Quarter; You find openings to the western, and northern sides of the quarter. choose 'west' or 'north' ")
+    if choice == "west":
+        Fifth_Quarter()
+                
+
+def Fifth_Quarter():
+    choice = input("Fourth Quarter; You find openings to the western, and northern sides of the quarter. choose 'west' or 'north' ")
+    if choice == "west":
+        Sixth_Quarter()
+            
+
+def Sixth_Quarter():
+    choice = input ("You enter a larger section of the maze, you find a fearsome Salt Shelled Spider Crab, almost the size of a double decker bus! it charges at you with astonishing speed, do you fight this angry beast? choose 'yes' or 'no' ")
+    if choice == "yes":
+       choice = input ("You run speedily at the giant crab, your sword glinting with blue shimmering power, you take a swipe at one of the crab's legs, and a small part of its carapace shatters! do you continue fighting the crab? choose 'fight' or 'cease fighting' ")
+    if choice == "fight":
+        choice = input ("Your sword digs out its leg, reminding you of a certain character from a specific Disney movie! keep it up! (choose 'fight' or 'cease fighting' ) ")
+
+    elif choice == "cease fighting":
+        print ("The sword misses as you pause, and the crab knocks you onto your back, and impales you! *You Died!* ")
+        Living_room()
+
+    if choice == "fight":
+        choice = input ("YOUR SWORD HAS KNOCKED THE CRAB ON ITS BACK, AND AN UNSEEN CROUD GOES WILD!!! (choose 'kill or 'wait' ) ")
+
+    if choice == "kill":
+        choice = input ("You pierce the underbelly of the giant crab, and the crab poofs away into a thick smoke, *You Gained 90 Telerium!* *You Gained 30 XP!* You celebrate your success of killing such a giant monster - and your attention is drawn to a unique type of armor. seemingly made from the same material of the crab's carapace. (choose 'pick up Crab Armor' or 'venture further into maze') ")
+        
+    if choice == "pick up Crab Armor":
+        choice = input ("You have picked up the Crab Armor, and strike a heroic pose, with the sword in the air. 'venture further into maze' or 'linger' ")
+    if choice == "venture further into maze":
+       choice = input ("An entrance in front of you goes 'south' ")
+    elif choice == "linger":
+        choice = input ("You linger in the maze room, and wait patiently for something to happen............. You starve to death. *You Died!*")
+        Living_room()
+
+
+    if choice == "north":
+        choice = input ("Now, how did you manage to get stuck in here, in this dead end? choose 'back' to go where you once were. ")
+    if choice == "back":
+        choice = input ("")
+    elif choice == "east":
+                Seventh_Quarter()
+def Seventh_Quarter():
+    choice = input ("Seventh Quarter; Your brain is growing weary of retracing steps from walking through this stronghold of scorn. you find entrances to MORE TUNNELS. listing directions of west, north, and east. choose which way.")
+    if choice == "southwest":
+        choice = input ("You come to an empty room... or so you think? the hallowed passage goes forward, to the north. but there's a trapdoor in the wall. probably leading to something important, perhaps? if you wanna go the longer way, choose 'north' if you are curious enough, choose 'trapdoor' ")
+    elif choice == "north":
+            Eighth_Quarter()
+def Eighth_Quarter():          
+    choice = input ("Eighth Quarter: A most fearsome and formidable beast hisses in front of your face; make that fearsome and formidable BEASTS! the TREE HEADED GRUE leaps at you, fangs dripping with killing venom. 'dodge' or 'block attack' ")
+    if choice == "trapdoor ":
+        choice = input ("You start crawling through a ventilation shaft, for an exeedingly long time... deep sounds of a snake echoes overhead, and see its shadow pass over the metal grate. you let out a distressed groan, unluckily alerting the three headed grue of your presence. all three heads clamp their mouths around the grate, and wrench the metal into a mangled heap! they open their jaws, welcoming their prey. they all lunge at you, and without thinking you throw the sword into its mouth. the middle head swallows it, and roars in pain. it immediately vaporizes. You retrieve the glowing elven sword, and continue on through the metal tunnel. *You gained 300 Telerium!* 'crawl' there really is no other choice. sorry.")
+        if choice == "dodge":
+            choice = input ("You dodge the grue's attack at a most opportune time, one of the heads is impaled by a hanging pipe, and both heads on the grue's sides keep it from doing you harm. you leave it behind, with knowledge that, that monster won't be bothering you, anymore. 'proceed' or 'go back and kill restrained grue' ")
+    elif choice == "block attack":
+            choice = input ("You try to evade the grues, but, in vain. the grue heads pull you apart. Bon appetite!... ")
+            Living_room()
+
+
+
+    if choice == "proceed":
+            Ninth_Quarter()
+
+def Ninth_Quarter():
+    choice = input ("Ninth Quarter; You feel greatly scared as you see glowing firey markings on the walls, ceilling, and floor. You gaze at them with fear, but also confusion and wonder. The feelings that the markings put inside your head are all but dreadfulness, and dark suffering... the same trapdoor that you passed by seems to be miraculously untouched. 'trapdoor' or 'secret passage' ")
+    if choice == "crawl":
+            choice = input ("The surrounding pipe grows charred and burnt. and hear labored roaring. something like unto a dragon, perhaps?... You come to an amazingly large cave, with the ceiling and walls showing large gashes, like from something like incredibly sharp teeth and claws. ")
+            Dragon_Cave()
+            
+def Dragon_Cave():
+    ("Dragon Cave: A gargantuan fearsome dragon spreads its red wings, red embers supposedly to be its eyes glow with a profound threatening hatred for its intuder. the INFERNAL SKULL DRAGON roars loudly, shaking the entire cave, causing you to stumble and flail, to fall on your rump, blood running cold as ice, and eyes widened in incredible fear of such a beast! quick! it's starting to breathe fire! 'left' or 'right' ")
+    if choice == "left":
+            choice = input ("You dodge to the left from the Dragon's fire ball's course, but just barely. the fireball sets the stone floor aflame. You ponder of the strange flammable stone, that back on Earth, none of the known sort of stone existed. NO TIME TO THINK, NOW! the Dragon is firing its fireballs again! choose 'man' or 'mouse' ")
+    elif choice == "right":
+            choice = input ("You dodge to the right from the Dragon's fire ball's course, but just barely. the fireball sets the stone floor aflame. You ponder of the strange flammable stone, that back on Earth, none of the known sort of stone existed. NO TIME TO THINK, NOW! the Dragon is firing its fireballs again! choose 'man' or 'mouse'")
+    if choice == "man":
+            choice = input ("You grit your teeth, and run bravely at the Dragon. Fireballs fly at you! You bat each one back, with great athleticizm in your effective strikes. the Dragon catches each of the returned fireballs, and launching them back at you. This time as you try to send them back at the winged lizard, your sword sliced through them, turning them to smoke. choose 'continue fighting' or 'draw fire' ")
+    elif choice == "mouse":
+            choice = input ("You flee, with great fear and speed, the Dragon is forced to chase you with impeccable speed, as well. You run through a tunnel, and the Dragon tries to fit its giant head through the small passageway. But it finds a way around the obstacle in its way. it breathes its fire and incinerates you to a small pile of ash!! *You Died!* ")
+            Living_room()
+
+    if choice == "continue fighting":
+            choice = input ("The Dragon appears either amazed or exceedingly enraged of how heroically you have challenged and managed to survive its attacks. quick! while its distracted, do your best to take it down! 'fight' or 'kill' ")
+    elif choice == "draw fire":
+            choice = input ("You and the Dragon make peace between each other, and get out pens, paper, and colored pencils to DRAW FIRE. The both of you draw of mythical creatures made of molten rock. You inquire of the Dragon if there is any chance of getting back to your own earthly realm. The Dragon agrees to help you back to Earth. The Dragon concentrates an ancient firey magic, flowing of old power. in a blink of an eye you are back at home, and look back at the great, legendary things that you have done in the dark caverns. 'THANKS FOR PLAYING!!!' ")
+    elif choice == "fight":
+            choice = input ("Your sword decapitates the Dragon, its head falling to the ground with a sloppy thud. (gross.) Purified magic envelops you from the glowing sword, your burns, and wounds stitch themselves closed, and immediately heal. Your armor transfigurates from a crusty brown, to a bright, glorious Etherium alloy, and the glowing sword grows and transforms to its true form and regains its pure glory and name. the GREATSWORD OF THE BLESSED HERO. that Hero is you. you have defeated this realm's most evil force, and thanks to you, the wiles of evil are finally destroyed. You see, the Infernal Skull Dragon was an ancient form of evil, now obliterated. You are now... The Crucible of All Wrongdoing. The Warrior of-- sorry. The creator of this game is just trying to 'wow' you with impeccably enormous vocabulary... AW, THERE, I DID IT AGAIN! dangit, dangit, dangit! 'Thanks for playing!' ") 
+
+
+def main():
+    character = {
+         'name' : '',
+         'telerium' : 1000,
+         'inventory' : {},
+    }
+    character['name'] = input("Enter your name. ")
+    
+    print("\n Welcome, " + character['name'] + "!")
+    print("\n Here we go!")
+
+    Living_room(character)
+
+
+if __name__ == "__main__":
+     main()
